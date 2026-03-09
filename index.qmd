@@ -104,21 +104,21 @@ import daft
 
 pgm = daft.PGM(dpi=150, alternate_style="outer")
 
-# Lemons node (yellow)
-pgm.add_node("lemons", "Lemons (X)", 1, 1, aspect=2, scale=1.1,
+# Lemons node (yellow - light fill for black text contrast)
+pgm.add_node("lemons", "Lemons (X)", 0.5, 1, aspect=2.4, scale=1.3,
              plot_params={
-                 'facecolor': 'gold',
+                 'facecolor': 'lemonchiffon',
                  'edgecolor': 'darkgoldenrod',
                  'linewidth': 2,
-                 'alpha': 0.9,
+                 'alpha': 0.95,
              })
-# Scurvy node (sickly/unpleasant color)
-pgm.add_node("scurvy", "Scurvy (Y)", 3, 1, aspect=2, scale=1.1,
+# Scurvy node (lightened tan so black text is readable)
+pgm.add_node("scurvy", "Scurvy (Y)", 3.5, 1, aspect=2.4, scale=1.3,
              plot_params={
-                 'facecolor': '#8B7355',
+                 'facecolor': '#C4A574',
                  'edgecolor': '#5C4033',
                  'linewidth': 2,
-                 'alpha': 0.9,
+                 'alpha': 0.95,
              })
 pgm.add_edge("lemons", "scurvy", label="prevents")
 
@@ -142,29 +142,29 @@ import daft
 
 pgm = daft.PGM(dpi=150, alternate_style="outer")
 
-# Acid node (green) - spaced left
-pgm.add_node("acid", "Acid (X)", 0, 1, aspect=2, scale=1.1,
+# Acid node (green - light fill for readability)
+pgm.add_node("acid", "Acid (X)", 0, 1, aspect=2.4, scale=1.3,
              plot_params={
-                 'facecolor': 'palegreen',
+                 'facecolor': 'honeydew',
                  'edgecolor': 'darkgreen',
                  'linewidth': 2,
-                 'alpha': 0.9,
+                 'alpha': 0.95,
              })
-# Bacteria in food node - center
-pgm.add_node("bacteria", "Bacteria\nin food (Y)", 2.5, 1, aspect=2, scale=1.1,
+# Bacteria in food node (larger so two-line label fits)
+pgm.add_node("bacteria", "Bacteria\nin food (Y)", 2.5, 1, aspect=2.6, scale=1.4,
              plot_params={
                  'facecolor': 'lavender',
                  'edgecolor': 'purple',
                  'linewidth': 2,
-                 'alpha': 0.9,
+                 'alpha': 0.95,
              })
-# Scurvy node (same as DAG 1) - spaced right
-pgm.add_node("scurvy", "Scurvy (Z)", 5, 1, aspect=2, scale=1.1,
+# Scurvy node (lightened tan for text contrast)
+pgm.add_node("scurvy", "Scurvy (Z)", 5, 1, aspect=2.4, scale=1.3,
              plot_params={
-                 'facecolor': '#8B7355',
+                 'facecolor': '#C4A574',
                  'edgecolor': '#5C4033',
                  'linewidth': 2,
-                 'alpha': 0.9,
+                 'alpha': 0.95,
              })
 pgm.add_edge("acid", "bacteria", label="kills")
 pgm.add_edge("bacteria", "scurvy", label="causes")
@@ -189,26 +189,26 @@ import daft
 
 pgm = daft.PGM(dpi=150, alternate_style="outer")
 
-# Vitamin C node (appealing citrus/health color)
-pgm.add_node("vitamin_c", "Vitamin C (X)", 0, 1, aspect=2.2, scale=1.2,
+# Vitamin C node (larger so label fits)
+pgm.add_node("vitamin_c", "Vitamin C (X)", -0.25, 1, aspect=2.6, scale=1.4,
              plot_params={
-                 'facecolor': '#FFE4C4',
+                 'facecolor': '#FFEFD5',
                  'edgecolor': '#D2691E',
                  'linewidth': 2,
                  'alpha': 0.95,
              })
-# Collagen synthesis node
-pgm.add_node("collagen", "Collagen\nsynthesis (Y)", 2.5, 1, aspect=2.2, scale=1.2,
+# Collagen synthesis node (larger for two-line label)
+pgm.add_node("collagen", "Collagen\nsynthesis (Y)", 2.5, 1, aspect=2.8, scale=1.45,
              plot_params={
-                 'facecolor': '#E0F7FA',
+                 'facecolor': '#E8F4F8',
                  'edgecolor': '#00838F',
                  'linewidth': 2,
                  'alpha': 0.95,
              })
-# Scurvy node (same as DAG 1 and 2)
-pgm.add_node("scurvy", "Scurvy (Z)", 5, 1, aspect=2.2, scale=1.2,
+# Scurvy node (lightened tan for readability)
+pgm.add_node("scurvy", "Scurvy (Z)", 5.25, 1, aspect=2.6, scale=1.4,
              plot_params={
-                 'facecolor': '#8B7355',
+                 'facecolor': '#C4A574',
                  'edgecolor': '#5C4033',
                  'linewidth': 2,
                  'alpha': 0.95,
