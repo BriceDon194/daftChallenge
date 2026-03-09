@@ -138,12 +138,38 @@ pgm.render()
 #| label: dag-2-misguided
 #| echo: true
 
-# TODO: Replace this placeholder with your DAFT code
-# Create a DAG showing the misguided belief: Acid → Bacteria Death → Scurvy Prevention
+import daft
 
-# Your code here - recreate the DAG from the reference image
-# This DAG should show the incorrect causal chain
-# Use different colors or styling to indicate this is the wrong understanding
+pgm = daft.PGM(dpi=150, alternate_style="outer")
+
+# Acid node (green) - spaced left
+pgm.add_node("acid", "Acid (X)", 0, 1, aspect=2, scale=1.1,
+             plot_params={
+                 'facecolor': 'palegreen',
+                 'edgecolor': 'darkgreen',
+                 'linewidth': 2,
+                 'alpha': 0.9,
+             })
+# Bacteria in food node - center
+pgm.add_node("bacteria", "Bacteria\nin food (Y)", 2.5, 1, aspect=2, scale=1.1,
+             plot_params={
+                 'facecolor': 'lavender',
+                 'edgecolor': 'purple',
+                 'linewidth': 2,
+                 'alpha': 0.9,
+             })
+# Scurvy node (same as DAG 1) - spaced right
+pgm.add_node("scurvy", "Scurvy (Z)", 5, 1, aspect=2, scale=1.1,
+             plot_params={
+                 'facecolor': '#8B7355',
+                 'edgecolor': '#5C4033',
+                 'linewidth': 2,
+                 'alpha': 0.9,
+             })
+pgm.add_edge("acid", "bacteria", label="kills")
+pgm.add_edge("bacteria", "scurvy", label="causes")
+
+pgm.render()
 ```
 
 ### DAG 3: The 1928 Understanding (Complete and Correct)
