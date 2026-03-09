@@ -185,12 +185,38 @@ pgm.render()
 #| label: dag-3-1928
 #| echo: true
 
-# TODO: Replace this placeholder with your DAFT code
-# Create a DAG showing the 1928 understanding: Vitamin C → Scurvy Prevention
+import daft
 
-# Your code here - recreate the DAG from the reference image
-# This should be the most complete and accurate representation
-# Use professional styling that would be suitable for a scientific publication
+pgm = daft.PGM(dpi=150, alternate_style="outer")
+
+# Vitamin C node (appealing citrus/health color)
+pgm.add_node("vitamin_c", "Vitamin C (X)", 0, 1, aspect=2.2, scale=1.2,
+             plot_params={
+                 'facecolor': '#FFE4C4',
+                 'edgecolor': '#D2691E',
+                 'linewidth': 2,
+                 'alpha': 0.95,
+             })
+# Collagen synthesis node
+pgm.add_node("collagen", "Collagen\nsynthesis (Y)", 2.5, 1, aspect=2.2, scale=1.2,
+             plot_params={
+                 'facecolor': '#E0F7FA',
+                 'edgecolor': '#00838F',
+                 'linewidth': 2,
+                 'alpha': 0.95,
+             })
+# Scurvy node (same as DAG 1 and 2)
+pgm.add_node("scurvy", "Scurvy (Z)", 5, 1, aspect=2.2, scale=1.2,
+             plot_params={
+                 'facecolor': '#8B7355',
+                 'edgecolor': '#5C4033',
+                 'linewidth': 2,
+                 'alpha': 0.95,
+             })
+pgm.add_edge("vitamin_c", "collagen", label="causes")
+pgm.add_edge("collagen", "scurvy", label="prevents")
+
+pgm.render()
 ```
 
 ## Student Requirements Section: Mastering DAFT Visualization {#student-analysis-section}
